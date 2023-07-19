@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/3d14e49048.js" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+    <title>Simple Carousel</title>
+</head>
+
+<body>
+    <header>
+        <h1>Simple Carousel</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, iste.</p>
+    </header>
+
+    <section class="container">
+        <div class="left">
+            <div class="card">
+                <div id="leftImage" class="card__image"></div>
+                <div class="card__body">
+                    <div class="card__body__content">
+                        <h4 id="leftHeading" class="card__heading">Training</h4>
+                        <p id="leftSubheading" class="card__subheading">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Quia aut
+                            voluptatum alias?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="card">
+                <div id="centerImage" class="card__image"></div>
+                <div class="card__body">
+                    <i class="fa-solid fa-arrow-left" onclick="handleLeftClick()"></i>
+                    <div class="card__body__content">
+                        <h4 id="centerHeading" class="card__heading">Training</h4>
+                        <p id="centerSubheading" class="card__subheading">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Quia aut
+                            voluptatum alias?</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right" onclick="handleRightClick()"></i>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="card">
+                <div id="rightImage" class="card__image"></div>
+                <div class="card__body">
+                    <div class="card__body__content">
+                        <h4 id="rightHeading" class="card__heading">Training</h4>
+                        <p id="rightSubheading" class="card__subheading">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Quia aut
+                            voluptatum alias?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

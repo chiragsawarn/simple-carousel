@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    background-color: antiquewhite;
+}
+
+header {
+    padding: 2rem;
+}
+
+header>h1 {
+    text-align: center;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+
+}
+
+header>p {
+    text-align: center;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    margin-top: 0.75rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    text-align: center;
+}
+
+.left,
+.right {
+    opacity: 0.6;
+    background-color: white;
+}
+
+.center {
+    background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .left,
+    .right {
+        display: none;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    padding: 2rem;
+}
+
+.card__image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 300px;
+    background-image: url("./assets/singing.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__body>i {
+    color: gray;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    border: 4px solid gray;
+    padding: 1rem;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.card__body>i:hover {
+    color: #444;
+    border-color: #444;
+}
+
+.card__body__content {
+    padding: 1rem 1.5rem 0;
+}
+
+.card__heading {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.card__subheading {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-top: 0.75rem;
+}
