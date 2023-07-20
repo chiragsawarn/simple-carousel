@@ -27,6 +27,13 @@ const data = [
       "Unleash Your Voice, Unleash Your Soul: Discover the Magic of Singing and Harmonize Your Way to Musical Mastery!",
     src: "./assets/singing.jpg",
   },
+  {
+    id: 5,
+    heading: "Training",
+    subheading:
+      "Build Strength, Discipline, and Confidence: Master the Art of Karate with Expert Training!",
+    src: "./assets/training-karate.jpeg",
+  },
 ];
 
 let centerItemIndex = 1;
@@ -37,27 +44,27 @@ const populateCard = () => {
   // Left
   const leftItemIndex =
     centerItemIndex === 0 ? data.length - 1 : centerItemIndex - 1;
-  document.getElementById(
-    "leftImage"
-  ).style.backgroundImage = `url(${data[leftItemIndex].src})`;
+  document
+    .getElementById("leftImage")
+    .setAttribute("src", data[leftItemIndex].src);
   document.getElementById("leftHeading").innerText =
     data[leftItemIndex].heading;
   document.getElementById("leftSubheading").innerText =
     data[leftItemIndex].subheading;
 
   // Right
-  document.getElementById("rightImage").style.backgroundImage = `url(${
-    data[(centerItemIndex + 1) % data.length].src
-  })`;
+  document
+    .getElementById("rightImage")
+    .setAttribute("src", data[(centerItemIndex + 1) % data.length].src);
   document.getElementById("rightHeading").innerText =
     data[(centerItemIndex + 1) % data.length].heading;
   document.getElementById("rightSubheading").innerText =
     data[(centerItemIndex + 1) % data.length].subheading;
 
   // Center
-  document.getElementById(
-    "centerImage"
-  ).style.backgroundImage = `url(${data[centerItemIndex].src})`;
+  document
+    .getElementById("centerImage")
+    .setAttribute("src", data[centerItemIndex].src);
   document.getElementById("centerHeading").innerText =
     data[centerItemIndex].heading;
   document.getElementById("centerSubheading").innerText =
