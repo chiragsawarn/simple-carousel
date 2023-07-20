@@ -36,47 +36,83 @@ const data = [
   },
 ];
 
-let centerItemIndex = 1;
+const swiperWrapper = document.querySelector(".swiper-wrapper");
 
-window.onload = () => populateCard();
+// Loop through the data and create the HTML components
+data.forEach((item) => {
+  // Create the main elements
+  const swiperSlide = document.createElement("div");
+  swiperSlide.classList.add("swiper-slide");
 
-const populateCard = () => {
-  // Left
-  const leftItemIndex =
-    centerItemIndex === 0 ? data.length - 1 : centerItemIndex - 1;
-  document
-    .getElementById("leftImage")
-    .setAttribute("src", data[leftItemIndex].src);
-  document.getElementById("leftHeading").innerText =
-    data[leftItemIndex].heading;
-  document.getElementById("leftSubheading").innerText =
-    data[leftItemIndex].subheading;
+  const card = document.createElement("div");
+  card.classList.add("card");
 
-  // Right
-  document
-    .getElementById("rightImage")
-    .setAttribute("src", data[(centerItemIndex + 1) % data.length].src);
-  document.getElementById("rightHeading").innerText =
-    data[(centerItemIndex + 1) % data.length].heading;
-  document.getElementById("rightSubheading").innerText =
-    data[(centerItemIndex + 1) % data.length].subheading;
+  const cardImage = document.createElement("div");
+  cardImage.classList.add("card__image");
 
-  // Center
-  document
-    .getElementById("centerImage")
-    .setAttribute("src", data[centerItemIndex].src);
-  document.getElementById("centerHeading").innerText =
-    data[centerItemIndex].heading;
-  document.getElementById("centerSubheading").innerText =
-    data[centerItemIndex].subheading;
-};
+  const img = document.createElement("img");
+  img.src = item.src;
+  img.alt = "";
 
-const handleLeftClick = () => {
-  centerItemIndex = centerItemIndex == 0 ? data.length - 1 : --centerItemIndex;
-  populateCard();
-};
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card__body");
 
-const handleRightClick = () => {
-  centerItemIndex = centerItemIndex == data.length - 1 ? 0 : ++centerItemIndex;
-  populateCard();
-};
+  const cardBodyContent = document.createElement("div");
+  cardBodyContent.classList.add("card__body__content");
+
+  const heading = document.createElement("h4");
+  heading.classList.add("card__heading");
+  heading.textContent = item.heading;
+
+  const subheading = document.createElement("p");
+  subheading.classList.add("card__subheading");
+  subheading.textContent = item.subheading;
+
+  // Append the elements to create the structure
+  cardImage.appendChild(img);
+
+  cardBodyContent.appendChild(heading);
+  cardBodyContent.appendChild(subheading);
+
+  cardBody.appendChild(cardBodyContent);
+
+  card.appendChild(cardImage);
+  card.appendChild(cardBody);
+
+  swiperSlide.appendChild(card);
+
+  swiperWrapper.appendChild(swiperSlide);
+});
+
+// document
+//   .querySelector(".swiper-slide-prev")
+//   .classList.add("swiper-slide-visible");
+// document
+//   .querySelector(".swiper-slide-next")
+//   .classList.add("swiper-slide-visible");
+
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  slidesPerView: 1,
+  spaceBetween: 30,
+  direction: "horizontal",
+  loop: true,
+  watchSlidesProgress: true,
+  breakpoints: {
+    768: {
+      slidesPerView: 1.5,
+      spaceBetween: 30,
+      centeredSlides: true,
+    },
+  },
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
